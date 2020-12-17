@@ -58,14 +58,52 @@ public class Main {
 
                     enemyHealth -= damageDealt;
                     playerHealth -= damageTaken;
-                } else if (input.equals("2")){
 
+                    System.out.println("\t> You strike the " + enemy + " for " + damageDealt + " damage.");
+                    System.out.println("\t> You receive " + damageTaken + "in retaliation!");
+
+                    if (playerHealth < 1){
+                        System.out.println("\t> You are dead.");
+                        break;
+                    }
+                } else if (input.equals("2")){
+                    if(numberHealthPotions > 0 ){
+                        playerHealth += healthPotionHealAmount;
+                        numberHealthPotions--;
+                        System.out.println("\t You drink a health potion, healing yourself for "
+                                +  healthPotionHealAmount + "."
+                                + "\n\t> You now have " + playerHealth + "HP."
+                                + "\n\t> You have " + numberHealthPotions + "health potions left.\n");
+                    } else {
+                        System.out.println("\t> You don't have any left! Defeat more enemies to get more!");
+                    }
                 } else if (input.equals("3")){
+                    System.out.println("\t> You run away from the " + enemy + "!");
+                    // By continuing our GAME, we will break out all the loops and restart it.
+                    continue GAME;
 
                 } else {
-
+                    System.out.println("\tYou don't know what to do.");
                 }
             }
+
+            if(playerHealth < 1){
+                System.out.println("You managed to escape but are wounded");
+                break;
+            }
+            System.out.println("-----------------------------------------------------");
+            System.out.println(" # " + enemy + "was defeated! # ");
+            System.out.println(" # You have " + playerHealth + "HP left. # ");
+            //generate a random number, if it is greater than the dropchance, award healthpotion
+            if(rand.nextInt(100) > healthPotionDropChance) {
+                numberHealthPotions++;
+                System.out.println(" # The " + enemy + " dropped a health potion! # ");
+                System.out.println(" # You have " + numberHealthPotions + " healh potion(s). # ");
+            }
+
         }
+
+
+
     }
 }
