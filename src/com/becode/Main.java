@@ -92,7 +92,7 @@ public class Main {
                 break;
             }
             System.out.println("-----------------------------------------------------");
-            System.out.println(" # " + enemy + "was defeated! # ");
+            System.out.println(" # " + enemy + " was defeated! # ");
             System.out.println(" # You have " + playerHealth + "HP left. # ");
             //generate a random number, if it is greater than the dropchance, award healthpotion
             if(rand.nextInt(100) > healthPotionDropChance) {
@@ -100,8 +100,27 @@ public class Main {
                 System.out.println(" # The " + enemy + " dropped a health potion! # ");
                 System.out.println(" # You have " + numberHealthPotions + " healh potion(s). # ");
             }
+            System.out.println("-----------------------------------------------------");
+            System.out.println("What would you like to do?");
+            System.out.println("1. Continue fighting");
+            System.out.println("2. Exit dungeon");
 
+            String input = in.nextLine();
+
+            while (!input.equals("1") && !input.equals("2")) {
+                System.out.println("Invalid command");
+                input = in.nextLine();
+            }
+            if (input.equals("1")) {
+                System.out.println("You continue your adventure");
+            } else if (input.equals("2")){
+                System.out.println("You exit the dungeon and survive");
+                break;
+            }
         }
+        System.out.println("##################");
+        System.out.println("Thanks for playing!");
+        System.out.println("##################");
 
 
 
