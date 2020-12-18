@@ -3,19 +3,19 @@ simple java text game that runs in console
 
 ### How to play
 
-- CLone repo, or fork. Just get it to your local system.
+- Clone repo, or fork. Just get it to your local system.
 
 - Open up your terminal and head to directory where you have stored it.
 
 - head into the /src/com/becode/
 
--run javac Main.java
+- run javac Main.java
 
--code will compile
+- code will compile
 
--run java Main.java
+- run java Main.java
 
--use numpad to play. 
+- use numpad to play. 
 
 ### Story so far
 
